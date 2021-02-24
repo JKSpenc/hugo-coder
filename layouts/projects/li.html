@@ -1,7 +1,8 @@
 <li> 
   <a href="{{ .Params.externalLink | default .RelPermalink }}">
-  <div class="list-item-wrapper">
-      <div class="list-item-content">
+    <div class="bg"></div>
+    <div class="content-wrap">
+      <div class="content">
         <span class="title">{{ .Title }}</span>
         <div class="tags">
           {{ range .Params.tags }}
@@ -13,3 +14,8 @@
     </div>
   </a>
 </li>
+
+<!--li>
+  <span class="date">{{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}</span>
+  <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
+</li-->

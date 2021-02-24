@@ -16,14 +16,14 @@
         font-size: 4.2rem;
         line-height: 4.6rem;
         margin: 0;
-        @media only screen and (max-width : 768px) {
-          font-size: 4.0rem;
+        @media only screen and (max-width: 768px) {
+          font-size: 4rem;
           line-height: 4.4rem;
         }
       }
     }
     footer {
-      margin-top: 4.0rem;
+      margin-top: 4rem;
       .see-also {
         margin: 3.2rem 0;
         h3 {
@@ -39,7 +39,7 @@
   }
   .post {
     .post-title {
-      margin-bottom: .75em;
+      margin-bottom: 0.75em;
     }
     .post-meta {
       i {
@@ -68,12 +68,88 @@
   }
 }
 
-.avatar img{
+.avatar img {
   width: 20rem;
   height: auto;
   border-radius: 50%;
-  @media only screen and (max-width : 768px) {
+  @media only screen and (max-width: 768px) {
     width: 10rem;
+  }
+}
+
+.grid {
+  ul {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 1rem;
+    display: grid;
+    margin: 3.2rem 0 3.2rem 0;
+    list-style: none;
+    padding: 0;
+
+    li {
+      align-self: stretch;
+      a {
+        display: flex;
+        flex-direction: column;
+        height: 0;
+        padding-bottom: 100%;
+        border-radius: 1rem;
+        background-color: #833ab4;
+        background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #833ab4 36px),
+          repeating-linear-gradient(#e2459b55, #e2459b);
+        min-height: 100%;
+        &:hover,
+        &:focus {
+          text-decoration: none;
+          transform: scale(1.01);
+        }
+        .bg {
+          border-radius: 1rem;
+          background-origin: border-box;
+          background-clip: content-box, border-box;
+          padding-bottom: 50%;
+        }
+        .content-wrap {
+          border-radius: 1rem;
+          overflow: hidden;
+          padding-bottom: 50%;
+          background: -webkit-gradient(linear, left bottom, left top, from($alt-bg-color), to(rgba(0, 0, 0, 0)));
+        }
+        .content {
+          height: fit-content;
+          padding: 1rem;
+          display: block;
+        }
+        .title {
+          font-size: 1.8rem;
+          color: $fg-color;
+          font-family: $title-font-family;
+        }
+        .content {
+          font-size: 1.6rem;
+          color: $fg-color;
+          word-wrap: break-word;
+        }
+      }
+    }
+    li:nth-child(2n) > a {
+      background-color: #833ab4;
+      background-image: linear-gradient(30deg, #e2459b 12%, transparent 12.5%, transparent 87%, #e2459b 87.5%, #e2459b),
+        linear-gradient(150deg, #e2459b 12%, transparent 12.5%, transparent 87%, #e2459b 87.5%, #e2459b),
+        linear-gradient(30deg, #e2459b 12%, transparent 12.5%, transparent 87%, #e2459b 87.5%, #e2459b),
+        linear-gradient(150deg, #e2459b 12%, transparent 12.5%, transparent 87%, #e2459b 87.5%, #e2459b),
+        linear-gradient(60deg, #e2459b77 25%, transparent 25.5%, transparent 75%, #e2459b77 75%, #e2459b77),
+        linear-gradient(60deg, #e2459b77 25%, transparent 25.5%, transparent 75%, #e2459b77 75%, #e2459b77);
+      background-size: 72px 126px;
+      background-position: 0 0, 0 0, 36px 63px, 36px 63px, 0 0, 36px 63px;
+    }
+    li:nth-child(3n) > a {
+      background-color: #833ab4;
+      background: linear-gradient(135deg, #e2459b55 25%, transparent 25%) -36px 0/ 72px 72px,
+        linear-gradient(225deg, #e2459b 25%, transparent 25%) -36px 0/ 72px 72px,
+        linear-gradient(315deg, #e2459b55 25%, transparent 25%) 0px 0/ 72px 72px,
+        linear-gradient(45deg, #e2459b 25%, #833ab4 25%) 0px 0/ 72px 72px;
+    }
   }
 }
 
@@ -84,39 +160,77 @@
     padding: 0;
     li {
       font-size: 1.8rem;
-      @media only screen and (max-width : 768px) {
+      @media only screen and (max-width: 768px) {
         margin: 1.6rem 0 1.6rem 0;
       }
-      .date {
-        display: inline-block;
-        flex:1;
-        width: 20.0rem;
-        text-align: right;
-        margin-right: 3.0rem;
-        @media only screen and (max-width : 768px) {
-          display: block;
-          text-align: left;
-        }
-      }
-      .title {
-        font-size: 1.8rem;
-        flex:2;
-        color: $fg-color;
-        font-family: $font-family;
-        font-weight: 700;
+      margin-bottom: 1.6rem;
+      a {
+        border-radius: 1rem;
+        display: block;
         &:hover,
         &:focus {
-          color: $link-color
+          text-decoration: none;
+          transform: scale(1.01);
+        }
+        .list-item-wrapper {
+          border-radius: 1rem;
+          overflow: hidden;
+          background: -webkit-gradient(linear, left bottom, left top, from($alt-bg-color), to(rgba(0, 0, 0, 0)));
+        }
+        .list-item-content {
+          padding: 2rem;
+          font-size: 1.6rem;
+          color: $fg-color;
+          word-wrap: break-word;
+          .title {
+            font-size: 1.8rem;
+            color: $fg-color;
+            font-family: $title-font-family;
+            &:hover,
+            &:focus {
+              color: $link-color;
+            }
+          }
         }
       }
     }
-  }
-  ul:not(.pagination) {
-    li {
-      @media only screen and (min-width : 768.1px) {
-        display: flex;
-      }
+    li:nth-child(n) > a {
+      background-color: #833ab4;
+      background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #833ab4 36px),
+        repeating-linear-gradient(#e2459b55, #e2459b);
     }
+    li:nth-child(2n) > a {
+      background-color: #833ab4;
+      background-image: linear-gradient(30deg, #e2459b 12%, transparent 12.5%, transparent 87%, #e2459b 87.5%, #e2459b),
+        linear-gradient(150deg, #e2459b 12%, transparent 12.5%, transparent 87%, #e2459b 87.5%, #e2459b),
+        linear-gradient(30deg, #e2459b 12%, transparent 12.5%, transparent 87%, #e2459b 87.5%, #e2459b),
+        linear-gradient(150deg, #e2459b 12%, transparent 12.5%, transparent 87%, #e2459b 87.5%, #e2459b),
+        linear-gradient(60deg, #e2459b77 25%, transparent 25.5%, transparent 75%, #e2459b77 75%, #e2459b77),
+        linear-gradient(60deg, #e2459b77 25%, transparent 25.5%, transparent 75%, #e2459b77 75%, #e2459b77);
+      background-size: 72px 126px;
+      background-position: 0 0, 0 0, 36px 63px, 36px 63px, 0 0, 36px 63px;
+    }
+    li:nth-child(3n) > a {
+      background-color: #833ab4;
+      background: linear-gradient(135deg, #e2459b55 25%, transparent 25%) -36px 0/ 72px 72px,
+        linear-gradient(225deg, #e2459b 25%, transparent 25%) -36px 0/ 72px 72px,
+        linear-gradient(315deg, #e2459b55 25%, transparent 25%) 0px 0/ 72px 72px,
+        linear-gradient(45deg, #e2459b 25%, #833ab4 25%) 0px 0/ 72px 72px;
+    }
+  }
+}
+
+.tags {
+  .tag {
+    font-size: 1.4rem;
+    color: whitesmoke;
+    font-family: $title-font-family;
+    background: rgb(131, 58, 180);
+    background: linear-gradient(54deg, #833ab4 28%, #fd1d1d 80%, rgba(252, 176, 69, 1) 100%);
+    border-radius: 0.5rem;
+    display: inline-block;
+    padding-right: 1rem;
+    padding-left: 1rem;
   }
 }
 
@@ -127,20 +241,20 @@
   .about {
     text-align: center;
     h1 {
-      margin-top: 2.0rem;
+      margin-top: 2rem;
       margin-bottom: 0.5rem;
     }
     h2 {
-      margin-top: 1.0rem;
+      margin-top: 1rem;
       margin-bottom: 0.5rem;
       font-size: 2.4rem;
-      @media only screen and (max-width : 768px) {
-        font-size: 2.0rem;
+      @media only screen and (max-width: 768px) {
+        font-size: 2rem;
       }
     }
     ul {
       list-style: none;
-      margin: 3.0rem 0 1.0rem 0;
+      margin: 3rem 0 1rem 0;
       padding: 0;
       li {
         display: inline-block;
@@ -148,14 +262,14 @@
         a {
           color: $fg-color;
           text-transform: uppercase;
-          margin-left: 1.0rem;
-          margin-right: 1.0rem;
+          margin-left: 1rem;
+          margin-right: 1rem;
           font-size: 1.6rem;
           &:hover,
           &:focus {
             color: $link-color;
           }
-          @media only screen and (max-width : 768px) {
+          @media only screen and (max-width: 768px) {
             font-size: 1.4rem;
           }
           i {
@@ -169,18 +283,18 @@
   .error {
     text-align: center;
     h1 {
-      margin-top: 2.0rem;
+      margin-top: 2rem;
       margin-bottom: 0.5rem;
       font-size: 4.6rem;
-      @media only screen and (max-width : 768px) {
+      @media only screen and (max-width: 768px) {
         font-size: 3.2rem;
       }
     }
     h2 {
-      margin-top: 2.0rem;
+      margin-top: 2rem;
       margin-bottom: 3.2rem;
       font-size: 3.2rem;
-      @media only screen and (max-width : 768px) {
+      @media only screen and (max-width: 768px) {
         font-size: 2.8rem;
       }
     }

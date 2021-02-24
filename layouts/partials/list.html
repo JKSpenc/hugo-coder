@@ -12,10 +12,21 @@
   {{ .Content }}
   <ul>
     {{ range .Paginator.Pages }}
-    <li>
-      <span class="date">{{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}</span>
-      <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
-    </li>
+      <li> 
+        <a href="{{ .Params.externalLink | default .RelPermalink }}">
+        <div class="list-item-wrapper">
+            <div class="list-item-content">
+              <span class="title">{{ .Title }}</span>
+              <div class="tags">
+                {{ range .Params.tags }}
+                  <span class="tag">{{ . }}</span>
+                {{ end }}
+              </div>
+              <span class="desc">{{ .Params.shortDescription }}</span>
+            </div>
+          </div>
+        </a>
+      </li>
     {{ end }}
   </ul>
   {{ partial "pagination.html" . }}

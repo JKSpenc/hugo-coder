@@ -16,6 +16,24 @@
       }
     }
 
+    .grid {
+      ul {
+        li {
+          a {
+            .content-wrap {
+              background: -webkit-gradient(linear, left bottom, left top, from($alt-bg-color-dark), to(rgba(0, 0, 0, 0)));
+            }
+            .title {
+              color: $fg-color-dark;
+            }
+            .content {
+              color: $fg-color-dark;
+            }
+          }
+        }
+      }
+    }
+
     .centered {
       .about {
         ul {
