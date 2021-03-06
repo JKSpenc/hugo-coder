@@ -5,11 +5,19 @@
     .list {
       ul {
         li {
-          .title {
-            color: $fg-color-dark;
-            &:hover,
-            &:focus {
-              color: $link-color-dark;
+          a {
+            .list-item-wrapper {
+              background: -webkit-gradient(linear, left bottom, left top, from($alt-bg-color-dark), to(rgba(0, 0, 0, 0)));
+            }
+            .list-item-content {
+              color: $fg-color-dark;
+              .title {
+                color: $fg-color-dark;
+                &:hover,
+                &:focus {
+                  color: $link-color-dark;
+                }
+              }
             }
           }
         }
