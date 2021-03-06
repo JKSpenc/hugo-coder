@@ -186,10 +186,6 @@
             font-size: 1.8rem;
             color: $fg-color;
             font-family: $title-font-family;
-            &:hover,
-            &:focus {
-              color: $link-color;
-            }
           }
         }
       }
